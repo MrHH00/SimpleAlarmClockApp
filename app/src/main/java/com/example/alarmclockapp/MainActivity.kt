@@ -184,7 +184,7 @@ private fun AlarmclockScreen(
                 primaryBlue,
             label = "buttonColor"
         )
-
+        //background image
         Image(
             painter = painterResource(R.drawable.background),
             contentDescription = null,
@@ -231,6 +231,7 @@ private fun AlarmclockScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(16.dp)
                 ) {
+                    //clock ui
                     TimePicker(
                         state = timePickerState
                     )
@@ -290,7 +291,7 @@ private fun AlarmclockScreen(
                 modifier = Modifier
                     .height(8.dp),
             )
-
+            //button to set alarm
             Button(
                 onClick = { setAlarm(context, timePickerState.hour, timePickerState.minute, alarmMessage) },
                 modifier = Modifier
@@ -303,6 +304,7 @@ private fun AlarmclockScreen(
                     containerColor = buttonColor
                 )
             ) {
+
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
@@ -331,6 +333,7 @@ fun setAlarm(context: Context, hour: Int, minute: Int, message: String) {
         putExtra(AlarmClock.EXTRA_MESSAGE, message)
     }
 
+    //start activity
     try {
         context.startActivity(intent)
         Toast.makeText(context, "Alarm set for $hour:$minute", Toast.LENGTH_SHORT).show()
@@ -339,7 +342,7 @@ fun setAlarm(context: Context, hour: Int, minute: Int, message: String) {
     }
 }
 
-
+//preview
 @Preview(showBackground = true)
 @Composable
 fun AlarmClockAppPreview(){
